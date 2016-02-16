@@ -14,6 +14,7 @@
 当你准备好开始使用CocoaPods之后，往`Podfile`中增加以下的内容。如果你还没有这个文件，在你工程的根目录下创建一个。
 
 ```ruby
+target 'YourProjectName' do
 # 取决于你的工程如何组织，你的node_modules文件夹可能会在别的地方。
 # 请将:path后面的内容修改为正确的路径。
 pod 'React', :path => './node_modules/react-native', :subspecs => [
@@ -24,6 +25,7 @@ pod 'React', :path => './node_modules/react-native', :subspecs => [
   'RCTWebSocket',
   # 添加其他你想在工程中使用的依赖。
 ]
+end
 ```
 
 记得要添加所有你需要的依赖。举例来说，`<Text>`元素如果不添加`RCTText`依赖就不能运行。
@@ -126,6 +128,7 @@ NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.b
 //   curl http://localhost:8081/index.ios.bundle -o main.jsbundle
 RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                     moduleName: @"SimpleApp"
+                                             initialProperties:nil
                                                  launchOptions:nil];
 ```
 
